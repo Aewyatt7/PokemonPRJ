@@ -10,8 +10,10 @@ const PokemonImg = ({ pokemon }) => {
       <img src={pokemon.img} alt={`Image of ${pokemon.name}`} />
       <p>Height: {pokemon.height}</p>
       <p>Weight: {pokemon.weight}</p>
-      <p>
-        Types:
+      {pokemon.next_evolution && pokemon.next_evolution.length > 0 && (
+    <p>Next Evolution: {pokemon.next_evolution[0].name}</p>
+)}
+       <p> Types:
         {typeImages.map((typeImg, index) => (
           <img key={index} src={typeImg} alt={`Type ${pokemon.type[index]}`} 
           style={{width:200 + "px"}}/>
