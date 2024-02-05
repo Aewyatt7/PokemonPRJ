@@ -1,6 +1,7 @@
+// PokeDex.jsx
 import React, { useState, useEffect } from "react";
 import PokemonImg from "./PokemonImg";
-import "./index.css"; 
+import './PokeDex.css'; 
 
 const PokeDex = () => {
   const [pokemonList, setPokemonList] = useState([]);
@@ -50,30 +51,27 @@ const PokeDex = () => {
   );
 
   return (
+    <div>
       <div>
-        <div>
-          <h1>List of Pokémon:</h1>
-          <label>
-            Pokemon Type:
-            <select value={selectedType} onChange={(event) => handleTypeChange(event.target.value)}>
-              {pokemonType().map((type) => (
-                <option key={type} value={type}>
-                  {type}
-                </option>
-              ))}
-            </select>
-          </label>
-        </div>
-        <div className="row">
-          {filteredPokemonList.map((pokemon, index) => (
-            <div key={index} className="pokemon-card">
-              <PokemonImg pokemon={pokemon} />
-            </div>
-          ))}
-        </div>
+        <h1>List of Pokémon:</h1>
+        <label>
+          Pokemon Type:
+          <select value={selectedType} onChange={(event) => handleTypeChange(event.target.value)}>
+            {pokemonType().map((type) => (
+              <option key={type} value={type}>
+                {type}
+              </option>
+            ))}
+          </select>
+        </label>
       </div>
-    );
-  }
-  
+      <div className="row">
+        {filteredPokemonList.map((pokemon, index) => (
+          <PokemonImg key={index} pokemon={pokemon} />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default PokeDex;

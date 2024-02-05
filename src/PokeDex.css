@@ -1,0 +1,36 @@
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.pokemon-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    white-space: wrap;
+    flex: 1 1 calc(33.33% - 16px);
+    box-sizing: border-box;
+    padding: 16px;
+    border: 2px solid black;
+    margin: 8px;
+    height: auto;
+  }
+  
+  .pokemon-info-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  weaknesses-images img,
+.types-images img {
+  max-width: 30px; /* Set maximum width for weakness and type images */
+  height: 100px;
+}
+img {
+  max-width: 100px; /* Set maximum width to 100% of the container */
+  height: 100px; /* Maintain aspect ratio */
+}

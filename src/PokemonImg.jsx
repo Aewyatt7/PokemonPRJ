@@ -18,14 +18,13 @@ function PokemonImg({ pokemon }) {
   );
 
   const typeImages = pokemon.type.map((type) => `${type}.png`);
+  
   const weaknessImages = pokemon.weaknesses.map(
     (weakness) => `${weakness}.png`
   );
 
-  const typeClass = pokemon.type[0].toLowerCase(); 
-
   return (
-    <div className={`col ${typeClass}`}>
+    <div className={`pokemon-card ${pokemon.type[0].toLowerCase()}`}>
       <p>{pokemon.name}</p>
       <img src={pokemon.img} alt={`Image of ${pokemon.name}`} />
       <p>
@@ -35,23 +34,13 @@ function PokemonImg({ pokemon }) {
       <p>
         Type:
         {typeImages.map((typeImg, index) => (
-          <img
-            key={index}
-            src={typeImg}
-            alt={`Type ${pokemon.type[index]}`}
-            style={{ width: 175 + "px" }}
-          />
+          <img key={index} src={typeImg} alt={`Type ${pokemon.type[index]}`} />
         ))}
       </p>
       <p>
         Weaknesses:
         {weaknessImages.map((weaknessImg, index) => (
-          <img
-            key={index}
-            src={weaknessImg}
-            alt={`Weakness ${pokemon.weaknesses[index]}`}
-            style={{ width: 175 + "px" }}
-          />
+          <img key={index} src={weaknessImg} alt={`Weakness ${pokemon.weaknesses[index]}`} />
         ))}
       </p>
     </div>
